@@ -165,53 +165,109 @@
 // //  console.log('BatteryCharge = ChargeTo')
 // // }
 
-const PersonProto = {
-    calAge (){
-        console.log(2037 - this.birthYear)
-    }, 
+// const PersonProto = {
+//     calAge (){
+//         console.log(2037 - this.birthYear)
+//     }, 
 
-    init(firstName, birthYear){
-        this.firstName = firstName;
-        this.birthYear = birthYear;
-    }
-}
+//     init(firstName, birthYear){
+//         this.firstName = firstName;
+//         this.birthYear = birthYear;
+//     }
+// }
 
 // const steven = Object.create(PersonProto);
 // create a PersonProto and assign it to studentProto
-const StudentProto = Object.create(PersonProto)
+// const StudentProto = Object.create(PersonProto)
 
-//Methods attached to the student prototype
-StudentProto.init = function(firstName, birthYear,  course){
-    PersonProto.init.call(this, firstName, birthYear);
-    this.course = course;
-}
-StudentProto.introduce = function(){
-    console.log(`My name is ${this.firstName} and I study ${this.course}`)
-}
-StudentProto.calAge = function(age) {
-    this.age = age
-    console.log(2047 - this.age)
-}
+// Methods attached to the student prototype
+// StudentProto.init = function(firstName, birthYear,  course){
+//     PersonProto.init.call(this, firstName, birthYear);
+//     this.course = course;
+// }
+// StudentProto.introduce = function(){
+//     console.log(`My name is ${this.firstName} and I study ${this.course}`)
+// }
+// StudentProto.calAge = function(age) {
+//     this.age = age
+//     console.log(2047 - this.age)
+// }
 // create a student Prototype and assign it to a student michaela
-const michaela = Object.create(StudentProto)
-michaela.init('Joshua', 1995, "Physics")
-michaela.introduce()
-michaela.calAge(2032)
+// const michaela = Object.create(StudentProto)
+// michaela.init('Joshua', 1995, "Physics")
+// michaela.introduce()
+// michaela.calAge(2032)
 
 // Classes
-class Account {
-    constructor(owner, currency, pin){
-        this.owner = owner;
-        this.currency = currency;
-        this.pin = pin;
-        this.movement = [];
-       // this.locale = navigator.language;
+// class Account {
+//     constructor(owner, currency, pin){
+//         this.owner = owner;
+//         this.currency = currency;
+//         this.pin = pin;
+//         this.movement = [];
+//        // this.locale = navigator.language;
 
-        console.log(`Thanks for openning an account, ${owner}`)
+//         console.log(`Thanks for openning an account, ${owner}`)
+//     }   
+// }
+
+// const acc1 = new Account("Jonas", "EUR", 1111)
+// console.log(acc1)
+
+// const student = {
+//     name: "David Ravvy", 
+//     class: "V1",
+//     rollNo:12
+// }
+
+// // delete student.rollNo;
+// console.log(Object.keys(student))
+
+// const library = [ 
+//     {
+//         author: "Bill Gates",
+//         title: "The Road Ahead",
+//         readingStatus: true
+//     },
+//     {
+//         author: "Steve Job",
+//         title: "Walter Isaacson",
+//         readingStatus: true
+//     }, 
+//     {
+//         author: "Suzanne Collins",
+//         title: "Mockingjay: The final book of Hunger Games",
+//         readingStatus: false
+//     }, 
+
+// ]
+
+// library.forEach(element => {
+//        console.log(Object.values(element)[2]) 
+//  });
+
+// for (let i = 0; i< library.length; i++) {
+//     if (library[i].readingStatus === true) {
+//         console.log(`i have read this
+//         ${library[i].title} by  ${library[i].author}`)
+//     }else{
+//     console.log(`You need to read this book ${library[i].title}
+//     by ${library[i].author}`)
+//     }
+
+// }
+
+class VolumeCylinder {
+    constructor(radius, height){
+        this.radius = radius;
+        this.height = height;
     }
 
-    
+    volume (){
+        return (Math.PI*(this.radius**2)*this.height).toFixed(4) 
+    }
 }
 
-const acc1 = new Account("Jonas", "EUR", 1111)
-console.log(acc1)
+const cylinderVolume = new VolumeCylinder(23, 34)
+
+console.log(cylinderVolume.volume())
